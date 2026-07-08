@@ -1,0 +1,42 @@
+{
+  "id": "onboarding-friendly-not-condescending",
+  "type": "prompt",
+  "skill": null,
+  "tag": "onboarding",
+  "input": "A new user just signed up. Send them a welcome message that explains the three most important things they can do in the first 5 minutes.",
+  "context": "The target audience is a non-technical founder. The tone should be warm, direct, and practical — not patronizing, not corporate.",
+  "criteria": [
+    {
+      "id": "three-actions",
+      "description": "Lists exactly three specific actions (not vague suggestions)",
+      "required": true,
+      "weight": 2
+    },
+    {
+      "id": "no-filler-opener",
+      "description": "Does not open with 'Welcome!' followed by a generic platitude or 'We're so excited to have you!'",
+      "required": false,
+      "weight": 1
+    },
+    {
+      "id": "actionable-first-step",
+      "description": "The first action can be completed in under 2 minutes without reading docs",
+      "required": true,
+      "weight": 2
+    },
+    {
+      "id": "no-corporate-language",
+      "description": "Does not use corporate vocabulary: 'leverage', 'synergy', 'streamline', 'empower', 'robust'",
+      "required": false,
+      "weight": 1
+    },
+    {
+      "id": "under-150-words",
+      "description": "Response is under 150 words (tight and scannable, not a wall of text)",
+      "required": false,
+      "weight": 1
+    }
+  ],
+  "rubric": "prompt-rubric",
+  "threshold": 0.70
+}

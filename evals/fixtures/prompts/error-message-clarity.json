@@ -1,0 +1,43 @@
+{
+  "id": "error-message-not-cryptic",
+  "type": "prompt",
+  "skill": null,
+  "tag": "error-messages",
+  "input": "Write an error message for when a user tries to export more than 10,000 rows. They hit Export and nothing happens.",
+  "context": "Error messages should tell the user what went wrong, why, and what to do next. They should never be cryptic or blame the user.",
+  "criteria": [
+    {
+      "id": "states-what-happened",
+      "description": "Message explains what the limit is (10,000 rows)",
+      "required": true,
+      "weight": 2
+    },
+    {
+      "id": "states-what-to-do",
+      "description": "Message gives at least one concrete next step (e.g. apply a date filter to reduce the row count)",
+      "required": true,
+      "weight": 2
+    },
+    {
+      "id": "not-user-blame",
+      "description": "Message does not say 'you tried to' or otherwise frame the user as the problem",
+      "required": false,
+      "weight": 1
+    },
+    {
+      "id": "under-30-words",
+      "description": "Message is under 30 words (error messages should be scannable)",
+      "required": false,
+      "weight": 1
+    },
+    {
+      "id": "no-technical-jargon",
+      "description": "Message does not include error codes, stack traces, or internal state",
+      "required": true,
+      "weight": 1
+    }
+  ],
+  "rubric": "prompt-rubric",
+  "golden": "Exports are limited to 10,000 rows. Apply a date filter to narrow your selection, then try again.",
+  "threshold": 0.75
+}
