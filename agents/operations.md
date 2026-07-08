@@ -35,3 +35,12 @@ client, seed script, and configuration files.
 **Summary:** Installed 114 packages, generated migration (3 tables), applied to sensai_org database,
 seeded 6 projects from config/project-registry.md.
 **Status:** Success
+
+### 5. 10:22 UTC | Model: claude-opus-4-8
+**Operation:** Add research activity workflow + native daily/weekly activity summaries
+**Summary:** Created the research activity workflow (research/README.md, research/ACTIVITY.md master
+rollup, research/bin/new-activity scaffolder, activities/_TEMPLATE, and the seed activity
+2026-07-08-agentic-os-foundations). Added sensai-org-native summary jobs (summaries/bin/daily,
+summaries/bin/weekly, _lib.sh) that publish datestamped summaries to summaries/outputs/{daily,weekly}/
+from git history, this operations log, research/ACTIVITY.md, and errors. Linked from research/index.md.
+**Status:** Success

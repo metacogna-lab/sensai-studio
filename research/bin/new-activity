@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# new-activity — scaffold a new research activity from _TEMPLATE and register it
+# in the master ACTIVITY.md rollup.
+#
+# Usage:
+#   research/bin/new-activity <slug> "Human Readable Title" [owner] [linked-project]
+#
+# Example:
+#   research/bin/new-activity loop-engineering "Loop Engineering for agent harnesses" Sunyata sensai-lens
+#
+# Creates: research/activities/<YYYY-MM-DD>-<slug>/{README.md,sources.md,findings.md}
+# Updates: research/ACTIVITY.md (inserts a new row below the ACTIVITIES:START marker)
+
+set -euo pipefail
+
+RESEARCH_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+TEMPLATE_DIR="$RESEARCH_DIR/activities/_TEMPLATE"
+MASTER="$RESEARCH_DIR/ACTIVITY.md"
+
+die() { printf 'new-activity: %s\n' "$1" >&2; exit 1; }
+
+[ $# -ge 2 ] || die 'usage: new-activity <slug> "Title" [owner] [linked-project]'
+
+SLUG_RAW="$1"; TITLE="$2"; OWNER="${3:-TBD}"; PROJECT="${4:-none}"
+
+# Normalize slug: lowercase, spaces/underscores -> hyphens, strip other chars.
+SLUG="$(printf '%s' "$SLUG_RAW" \
+  | tr '[:upper:]' '[:lower:]' \
+  | tr ' _' '--' \
+  | sed 's/[^a-z0-9-]//g; s/-\{2,\}/-/g; s/^-//; s/-$//')"
+[ -n "$SLUG" ] || die "slug '$SLUG_RAW' normalized to empty"
+
+DATE="$(date +%F)"
+DIR="$RESEARCH_DIR/activities/$DATE-$SLUG"
+
+[ -d "$TEMPLATE_DIR" ] || die "template not found: $TEMPLATE_DIR"
+[ -e "$DIR" ] && die "activity already exists: $DIR"
+
+cp -R "$TEMPLATE_DIR" "$DIR"
+
+# Substitute placeholders in every file of the new activity.
+_sub() {
+  sed -e "s/{{DATE}}/$DATE/g" \
+      -e "s/{{SLUG}}/$SLUG/g" \
+      -e "s|{{TITLE}}|$TITLE|g" \
+      "$1" > "$1.tmp" && mv "$1.tmp" "$1"
+}
+for f in "$DIR"/*.md; do _sub "$f"; done
+
+# Set owner in the manifest header line.
+sed -e "s/Owner: _TBD_/Owner: $OWNER/" "$DIR/README.md" > "$DIR/README.md.tmp" \
+  && mv "$DIR/README.md.tmp" "$DIR/README.md"
+
+# Register a row in the master rollup, directly under the START marker (newest on top).
+if [ -f "$MASTER" ] && grep -q 'ACTIVITIES:START' "$MASTER"; then
+  ROW="| [$DATE-$SLUG](./activities/$DATE-$SLUG/) | open | $DATE | $DATE | $OWNER | \`$PROJECT\` | $TITLE |"
+  awk -v row="$ROW" '
+    /ACTIVITIES:START/ && !done {
+      print
+      # print the existing table header + separator that follow, then our row
+      getline hdr; print hdr
+      getline sep; print sep
+      print row
+      done=1
+      next
+    }
+    { print }
+  ' "$MASTER" > "$MASTER.tmp" && mv "$MASTER.tmp" "$MASTER"
+else
+  printf 'new-activity: warning — %s missing or has no ACTIVITIES:START marker; row not registered\n' "$MASTER" >&2
+fi
+
+printf 'Created research activity: %s\n' "$DIR"
+printf 'Next:\n  1. Fill Question/Hypothesis/Scope in %s/README.md\n  2. Log sources in sources.md\n  3. Synthesize findings.md, then publish to summaries/outputs/\n' "$DIR"
