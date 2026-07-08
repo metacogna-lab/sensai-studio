@@ -1,0 +1,25 @@
+{
+  "name": "proharness",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Professional-intelligence meta-harness (public-source, source-cited).",
+  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "build": "tsc",
+    "doctor": "node scripts/doctor.mjs",
+    "verify-claims": "node scripts/verify-claims.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.5.0",
+    "eventemitter3": "^5.0.1",
+    "jsdom": "^24.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.23.0",
+    "typescript": "^5.9.3"
+  }
+}

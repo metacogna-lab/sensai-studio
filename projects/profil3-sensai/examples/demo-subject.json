@@ -1,0 +1,9 @@
+{
+  "name": "Jordan Rivera",
+  "role": "VP of Product",
+  "org": "Acme Analytics",
+  "seedUrls": [
+    "https://www.acme-analytics.example/about/leadership",
+    "https://www.linkedin.com/in/example-jordan-rivera"
+  ]
+}

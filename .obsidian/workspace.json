@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "15099efaf21990c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "bd55ab53188c183c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dbb8037e6f21e936",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6580415b5f6f271c",
+    "type": "split",
+    "children": [
+      {
+        "id": "e44428fcd908e813",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "577744081af0e149",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "8272cb6811d84d2c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8e83d848f8c9fe5b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "385a4fbadc2d33ae",
+    "type": "split",
+    "children": [
+      {
+        "id": "2b60eac2d1d9cc17",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2169c074ef8da578",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "d45c9ab31f1a6e93",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "ff74a000d4b20cec",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "d9e3cf6ebcd147fd",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "549b4877acbe0103",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "dbb8037e6f21e936",
+  "lastOpenFiles": [
+    "config/wiki-skill-prompt.md",
+    "config/prompt-routing.md",
+    "config/skills-map.md",
+    "config/skill-scaffold-prompt.md",
+    "config/skill-inventory.md",
+    "config/bootstrap-prompt.md",
+    "config/skill-creation-prompt.md",
+    "research/index.md",
+    "config/root-loader.md",
+    "config/skill-template.md",
+    "config/skill-registry.md",
+    "db/drizzle/0000_familiar_lord_hawal.sql",
+    "db/drizzle/meta/0000_snapshot.json",
+    "db/drizzle/meta/_journal.json",
+    "db/drizzle/meta",
+    "db/drizzle",
+    "db/package-lock.json",
+    "db/node_modules/drizzle-kit/bin.cjs",
+    "db/node_modules/drizzle-orm/selection-proxy.cjs",
+    "db/node_modules/pg-protocol/package.json",
+    "db/node_modules/drizzle-orm/runnable-query.cjs",
+    "db/node_modules/pg/README.md",
+    "db/node_modules/pg-connection-string/README.md",
+    "db/node_modules/shell-quote/security.md",
+    "db/node_modules/resolve-pkg-maps/README.md",
+    "db/node_modules/shell-quote/README.md",
+    "db/node_modules/env-paths/readme.md",
+    "db/node_modules/pg-types/README.md",
+    "db/node_modules/pg-cloudflare/README.md",
+    "db/node_modules/esbuild/README.md",
+    "db/node_modules/esbuild-register/README.md",
+    "db/node_modules/esbuild/LICENSE.md",
+    "db/node_modules/undici-types/README.md",
+    "db/node_modules/get-tsconfig/README.md",
+    "db/node_modules/pg-pool/README.md",
+    "db/node_modules/postgres-bytea/readme.md"
+  ]
+}
