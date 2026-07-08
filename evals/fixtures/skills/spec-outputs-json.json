@@ -1,0 +1,48 @@
+{
+  "id": "spec-outputs-structured-issue",
+  "type": "skill",
+  "skill": "spec",
+  "tag": "output-format",
+  "input": "Turn this into a GitHub issue: We need a way to export user data as CSV from the admin dashboard. Users should be able to filter by date range and export up to 10,000 rows.",
+  "context": "The /spec skill should output a well-structured GitHub issue with a title, user story, acceptance criteria, and technical notes.",
+  "criteria": [
+    {
+      "id": "has-title",
+      "description": "Output includes a clear, action-oriented issue title (e.g. 'Add CSV export to admin dashboard')",
+      "required": true,
+      "weight": 1
+    },
+    {
+      "id": "has-user-story",
+      "description": "Output includes a user story ('As a... I want... So that...' or equivalent)",
+      "required": false,
+      "weight": 1
+    },
+    {
+      "id": "has-acceptance-criteria",
+      "description": "Output includes at least 3 specific, testable acceptance criteria",
+      "required": true,
+      "weight": 2
+    },
+    {
+      "id": "mentions-10k-limit",
+      "description": "Acceptance criteria includes the 10,000 row limit as a specific requirement",
+      "required": true,
+      "weight": 1
+    },
+    {
+      "id": "mentions-date-filter",
+      "description": "Acceptance criteria includes date range filtering as a requirement",
+      "required": false,
+      "weight": 1
+    },
+    {
+      "id": "no-implementation-details",
+      "description": "Issue does not prescribe how to implement (no specific library names, no architecture decisions)",
+      "required": false,
+      "weight": 1
+    }
+  ],
+  "rubric": "skill-rubric",
+  "threshold": 0.80
+}
